@@ -27,16 +27,12 @@ class RandomNumbers extends React.Component{
                 continue;
             }
             if(number < randomNs[i-1]){
-                console.log('array' + randomNs[i - 1]);
-                console.log('number' + number);
                 continue;
             }
-            console.log(i);
-            console.log(number);
             randomNs.push(number);
             i++;
         }
-        console.log(randomNs);
+        this.setState({randomNs});
     };
     render() {
         return(
@@ -44,11 +40,11 @@ class RandomNumbers extends React.Component{
                 <div>
                     <button className="btn" onClick={this.newNs}>New numbers</button>
                 </div>
-                <Numbers number="4"/>
-                <Numbers number="13"/>
-                <Numbers number="23"/>
-                <Numbers number="25"/>
-                <Numbers number="32"/>
+                <Numbers number={this.state.randomNs[0]}/>
+                <Numbers number={this.state.randomNs[1]}/>
+                <Numbers number={this.state.randomNs[2]}/>
+                <Numbers number={this.state.randomNs[3]}/>
+                <Numbers number={this.state.randomNs[4]}/>
             </div>
         )
     }
